@@ -1,7 +1,14 @@
 <script>
 export default {
 	name: "MenuItem",
-	props: ["addToShoppingCart", "image", "inStock", "name", "price", "quantity"]
+	props: ["addToShoppingCart", "image", "inStock", "name", "price", "quantity"],
+	beforeMount(){
+		const currentDay = new Date().getUTCDate()
+		let paire = currentDay % 2
+		if(paire == 0){
+			this.price = this.price - ((this.price * 10) / 100)
+		}
+	}
 }
 </script>
 
